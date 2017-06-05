@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CazaTuCasaModel" Alias="Self" p1:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:p1="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="CazaTuCasaEntities" p1:LazyLoadingEnabled="true">
+    <EntitySet Name="COMUNA" EntityType="CazaTuCasaModel.COMUNA" />
+    <EntitySet Name="DOCUMENTACION" EntityType="CazaTuCasaModel.DOCUMENTACION" />
+    <EntitySet Name="INMUEBLE" EntityType="CazaTuCasaModel.INMUEBLE" />
+    <EntitySet Name="PROVINCIA" EntityType="CazaTuCasaModel.PROVINCIA" />
+    <EntitySet Name="PUBLICACION" EntityType="CazaTuCasaModel.PUBLICACION" />
+    <EntitySet Name="REGION" EntityType="CazaTuCasaModel.REGION" />
+    <EntitySet Name="sysdiagrams" EntityType="CazaTuCasaModel.sysdiagrams" />
+    <EntitySet Name="USUARIO" EntityType="CazaTuCasaModel.USUARIO" />
+    <AssociationSet Name="FK_COMUNA_POSEEN_PROVINCI" Association="CazaTuCasaModel.FK_COMUNA_POSEEN_PROVINCI">
+      <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+      <End Role="COMUNA" EntitySet="COMUNA" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLE_SE_UBICA_COMUNA" Association="CazaTuCasaModel.FK_INMUEBLE_SE_UBICA_COMUNA">
+      <End Role="COMUNA" EntitySet="COMUNA" />
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DOCUMENT_NESESITA2_INMUEBLE" Association="CazaTuCasaModel.FK_DOCUMENT_NESESITA2_INMUEBLE">
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+      <End Role="DOCUMENTACION" EntitySet="DOCUMENTACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLE_NESESITA_DOCUMENT" Association="CazaTuCasaModel.FK_INMUEBLE_NESESITA_DOCUMENT">
+      <End Role="DOCUMENTACION" EntitySet="DOCUMENTACION" />
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLE_GENERA_PUBLICAC" Association="CazaTuCasaModel.FK_INMUEBLE_GENERA_PUBLICAC">
+      <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INMUEBLE_TIENE_USUARIO" Association="CazaTuCasaModel.FK_INMUEBLE_TIENE_USUARIO">
+      <End Role="USUARIO" EntitySet="USUARIO" />
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PUBLICAC_GENERA2_INMUEBLE" Association="CazaTuCasaModel.FK_PUBLICAC_GENERA2_INMUEBLE">
+      <End Role="INMUEBLE" EntitySet="INMUEBLE" />
+      <End Role="PUBLICACION" EntitySet="PUBLICACION" />
+    </AssociationSet>
+    <AssociationSet Name="FK_PROVINCI_CONTIENE_REGION" Association="CazaTuCasaModel.FK_PROVINCI_CONTIENE_REGION">
+      <End Role="REGION" EntitySet="REGION" />
+      <End Role="PROVINCIA" EntitySet="PROVINCIA" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="COMUNA">
+    <Key>
+      <PropertyRef Name="ID_COMUNA" />
+    </Key>
+    <Property Name="ID_COMUNA" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_PROVINCIA" Type="Int32" />
+    <Property Name="NOMBRE_COMUNA" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="PROVINCIA" Relationship="CazaTuCasaModel.FK_COMUNA_POSEEN_PROVINCI" FromRole="COMUNA" ToRole="PROVINCIA" />
+    <NavigationProperty Name="INMUEBLE" Relationship="CazaTuCasaModel.FK_INMUEBLE_SE_UBICA_COMUNA" FromRole="COMUNA" ToRole="INMUEBLE" />
+  </EntityType>
+  <EntityType Name="DOCUMENTACION">
+    <Key>
+      <PropertyRef Name="ID_DOCUMENTACION" />
+    </Key>
+    <Property Name="ID_DOCUMENTACION" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_INMUEBLE" Type="Int32" />
+    <Property Name="TIPO_SUBSIDIO" Type="String" Nullable="false" MaxLength="20" Unicode="false" FixedLength="false" />
+    <Property Name="ESCRITURA_DE_LA_PROPIEDAD" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="DOMINIO_VIGENTE" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CERTIFICADO_DESLIDES" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="ROL_EVALUO" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="PLANO_PROPIEDAD" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CERTIFICADO_NUMERO" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CERTIFICADO_ASEO" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CERTIFICADO_DE_NO_EXPROPIACION" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <Property Name="CERTIFICADO_DE_HIPOTECA" Type="String" Nullable="false" MaxLength="10" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="INMUEBLE" Relationship="CazaTuCasaModel.FK_DOCUMENT_NESESITA2_INMUEBLE" FromRole="DOCUMENTACION" ToRole="INMUEBLE" />
+    <NavigationProperty Name="INMUEBLE1" Relationship="CazaTuCasaModel.FK_INMUEBLE_NESESITA_DOCUMENT" FromRole="DOCUMENTACION" ToRole="INMUEBLE" />
+  </EntityType>
+  <EntityType Name="INMUEBLE">
+    <Key>
+      <PropertyRef Name="ID_INMUEBLE" />
+    </Key>
+    <Property Name="ID_INMUEBLE" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_REGISTRO" Type="Int32" />
+    <Property Name="ID_PUBLICACION" Type="Int32" />
+    <Property Name="ID_COMUNA" Type="Int32" />
+    <Property Name="ID_DOCUMENTACION" Type="Int32" />
+    <Property Name="MATERIAL_INMUEBLE" Type="String" Nullable="false" MaxLength="50" Unicode="false" FixedLength="false" />
+    <Property Name="DIRECCION_INMUEBLE" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="LATITUD" Type="Double" Nullable="false" />
+    <Property Name="LONGITUD" Type="Double" Nullable="false" />
+    <Property Name="CANTIDAD_M2" Type="Int32" Nullable="false" />
+    <Property Name="CANTIDAD_HABITACION" Type="Int32" Nullable="false" />
+    <Property Name="CANTIDAD_BANO" Type="Int32" Nullable="false" />
+    <Property Name="ESTACIONAMIENTO" Type="String" Nullable="false" MaxLength="2" Unicode="false" FixedLength="false" />
+    <Property Name="NUMERO_CONTACTO" Type="Int32" Nullable="false" />
+    <Property Name="PRECIO_INMUEBLE" Type="Int32" Nullable="false" />
+    <Property Name="FOTO_INMUEBLE_1" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="FOTO_INMUEBLE_2" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <Property Name="FOTO_INMUEBLE_3" Type="String" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="COMUNA" Relationship="CazaTuCasaModel.FK_INMUEBLE_SE_UBICA_COMUNA" FromRole="INMUEBLE" ToRole="COMUNA" />
+    <NavigationProperty Name="DOCUMENTACION" Relationship="CazaTuCasaModel.FK_DOCUMENT_NESESITA2_INMUEBLE" FromRole="INMUEBLE" ToRole="DOCUMENTACION" />
+    <NavigationProperty Name="DOCUMENTACION1" Relationship="CazaTuCasaModel.FK_INMUEBLE_NESESITA_DOCUMENT" FromRole="INMUEBLE" ToRole="DOCUMENTACION" />
+    <NavigationProperty Name="PUBLICACION" Relationship="CazaTuCasaModel.FK_INMUEBLE_GENERA_PUBLICAC" FromRole="INMUEBLE" ToRole="PUBLICACION" />
+    <NavigationProperty Name="USUARIO" Relationship="CazaTuCasaModel.FK_INMUEBLE_TIENE_USUARIO" FromRole="INMUEBLE" ToRole="USUARIO" />
+    <NavigationProperty Name="PUBLICACION1" Relationship="CazaTuCasaModel.FK_PUBLICAC_GENERA2_INMUEBLE" FromRole="INMUEBLE" ToRole="PUBLICACION" />
+  </EntityType>
+  <EntityType Name="PROVINCIA">
+    <Key>
+      <PropertyRef Name="ID_PROVINCIA" />
+    </Key>
+    <Property Name="ID_PROVINCIA" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_REGION" Type="Int32" />
+    <Property Name="NOMBRE_PROVINCIA" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="COMUNA" Relationship="CazaTuCasaModel.FK_COMUNA_POSEEN_PROVINCI" FromRole="PROVINCIA" ToRole="COMUNA" />
+    <NavigationProperty Name="REGION" Relationship="CazaTuCasaModel.FK_PROVINCI_CONTIENE_REGION" FromRole="PROVINCIA" ToRole="REGION" />
+  </EntityType>
+  <EntityType Name="PUBLICACION">
+    <Key>
+      <PropertyRef Name="ID_PUBLICACION" />
+    </Key>
+    <Property Name="ID_PUBLICACION" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="ID_INMUEBLE" Type="Int32" />
+    <Property Name="FECHA" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="49" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="INMUEBLE" Relationship="CazaTuCasaModel.FK_INMUEBLE_GENERA_PUBLICAC" FromRole="PUBLICACION" ToRole="INMUEBLE" />
+    <NavigationProperty Name="INMUEBLE1" Relationship="CazaTuCasaModel.FK_PUBLICAC_GENERA2_INMUEBLE" FromRole="PUBLICACION" ToRole="INMUEBLE" />
+  </EntityType>
+  <EntityType Name="REGION">
+    <Key>
+      <PropertyRef Name="ID_REGION" />
+    </Key>
+    <Property Name="ID_REGION" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_REGION" Type="String" Nullable="false" MaxLength="100" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="PROVINCIA" Relationship="CazaTuCasaModel.FK_PROVINCI_CONTIENE_REGION" FromRole="REGION" ToRole="PROVINCIA" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" Nullable="false" MaxLength="128" Unicode="true" FixedLength="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="USUARIO">
+    <Key>
+      <PropertyRef Name="ID_REGISTRO" />
+    </Key>
+    <Property Name="ID_REGISTRO" Type="Int32" Nullable="false" p1:StoreGeneratedPattern="Identity" />
+    <Property Name="NOMBRE_REGISTRO" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="APELLIDO_REGISTRO" Type="String" Nullable="false" MaxLength="Max" Unicode="false" FixedLength="false" />
+    <Property Name="USUARIO1" Type="String" Nullable="false" MaxLength="40" Unicode="false" FixedLength="false" />
+    <Property Name="PASSWORD" Type="String" Nullable="false" MaxLength="25" Unicode="false" FixedLength="false" />
+    <Property Name="EMAIL" Type="String" Nullable="false" MaxLength="150" Unicode="false" FixedLength="false" />
+    <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="200" Unicode="false" FixedLength="false" />
+    <NavigationProperty Name="INMUEBLE" Relationship="CazaTuCasaModel.FK_INMUEBLE_TIENE_USUARIO" FromRole="USUARIO" ToRole="INMUEBLE" />
+  </EntityType>
+  <Association Name="FK_COMUNA_POSEEN_PROVINCI">
+    <End Role="PROVINCIA" Type="CazaTuCasaModel.PROVINCIA" Multiplicity="0..1" />
+    <End Role="COMUNA" Type="CazaTuCasaModel.COMUNA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PROVINCIA">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Principal>
+      <Dependent Role="COMUNA">
+        <PropertyRef Name="ID_PROVINCIA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLE_SE_UBICA_COMUNA">
+    <End Role="COMUNA" Type="CazaTuCasaModel.COMUNA" Multiplicity="0..1" />
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COMUNA">
+        <PropertyRef Name="ID_COMUNA" />
+      </Principal>
+      <Dependent Role="INMUEBLE">
+        <PropertyRef Name="ID_COMUNA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DOCUMENT_NESESITA2_INMUEBLE">
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="0..1" />
+    <End Role="DOCUMENTACION" Type="CazaTuCasaModel.DOCUMENTACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INMUEBLE">
+        <PropertyRef Name="ID_INMUEBLE" />
+      </Principal>
+      <Dependent Role="DOCUMENTACION">
+        <PropertyRef Name="ID_INMUEBLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLE_NESESITA_DOCUMENT">
+    <End Role="DOCUMENTACION" Type="CazaTuCasaModel.DOCUMENTACION" Multiplicity="0..1" />
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DOCUMENTACION">
+        <PropertyRef Name="ID_DOCUMENTACION" />
+      </Principal>
+      <Dependent Role="INMUEBLE">
+        <PropertyRef Name="ID_DOCUMENTACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLE_GENERA_PUBLICAC">
+    <End Role="PUBLICACION" Type="CazaTuCasaModel.PUBLICACION" Multiplicity="0..1" />
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PUBLICACION">
+        <PropertyRef Name="ID_PUBLICACION" />
+      </Principal>
+      <Dependent Role="INMUEBLE">
+        <PropertyRef Name="ID_PUBLICACION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INMUEBLE_TIENE_USUARIO">
+    <End Role="USUARIO" Type="CazaTuCasaModel.USUARIO" Multiplicity="0..1" />
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="USUARIO">
+        <PropertyRef Name="ID_REGISTRO" />
+      </Principal>
+      <Dependent Role="INMUEBLE">
+        <PropertyRef Name="ID_REGISTRO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PUBLICAC_GENERA2_INMUEBLE">
+    <End Role="INMUEBLE" Type="CazaTuCasaModel.INMUEBLE" Multiplicity="0..1" />
+    <End Role="PUBLICACION" Type="CazaTuCasaModel.PUBLICACION" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INMUEBLE">
+        <PropertyRef Name="ID_INMUEBLE" />
+      </Principal>
+      <Dependent Role="PUBLICACION">
+        <PropertyRef Name="ID_INMUEBLE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_PROVINCI_CONTIENE_REGION">
+    <End Role="REGION" Type="CazaTuCasaModel.REGION" Multiplicity="0..1" />
+    <End Role="PROVINCIA" Type="CazaTuCasaModel.PROVINCIA" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="REGION">
+        <PropertyRef Name="ID_REGION" />
+      </Principal>
+      <Dependent Role="PROVINCIA">
+        <PropertyRef Name="ID_REGION" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

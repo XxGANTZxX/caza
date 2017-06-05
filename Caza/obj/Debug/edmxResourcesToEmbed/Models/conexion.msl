@@ -1,0 +1,107 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CazaTuCasaModelStoreContainer" CdmEntityContainer="CazaTuCasaEntities">
+    <EntitySetMapping Name="COMUNA">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.COMUNA">
+        <MappingFragment StoreEntitySet="COMUNA">
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+          <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+          <ScalarProperty Name="NOMBRE_COMUNA" ColumnName="NOMBRE_COMUNA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DOCUMENTACION">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.DOCUMENTACION">
+        <MappingFragment StoreEntitySet="DOCUMENTACION">
+          <ScalarProperty Name="ID_DOCUMENTACION" ColumnName="ID_DOCUMENTACION" />
+          <ScalarProperty Name="ID_INMUEBLE" ColumnName="ID_INMUEBLE" />
+          <ScalarProperty Name="TIPO_SUBSIDIO" ColumnName="TIPO_SUBSIDIO" />
+          <ScalarProperty Name="ESCRITURA_DE_LA_PROPIEDAD" ColumnName="ESCRITURA_DE_LA_PROPIEDAD" />
+          <ScalarProperty Name="DOMINIO_VIGENTE" ColumnName="DOMINIO_VIGENTE" />
+          <ScalarProperty Name="CERTIFICADO_DESLIDES" ColumnName="CERTIFICADO_DESLIDES" />
+          <ScalarProperty Name="ROL_EVALUO" ColumnName="ROL_EVALUO" />
+          <ScalarProperty Name="PLANO_PROPIEDAD" ColumnName="PLANO_PROPIEDAD" />
+          <ScalarProperty Name="CERTIFICADO_NUMERO" ColumnName="CERTIFICADO_NUMERO" />
+          <ScalarProperty Name="CERTIFICADO_ASEO" ColumnName="CERTIFICADO_ASEO" />
+          <ScalarProperty Name="CERTIFICADO_DE_NO_EXPROPIACION" ColumnName="CERTIFICADO_DE_NO_EXPROPIACION" />
+          <ScalarProperty Name="CERTIFICADO_DE_HIPOTECA" ColumnName="CERTIFICADO_DE_HIPOTECA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="INMUEBLE">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.INMUEBLE">
+        <MappingFragment StoreEntitySet="INMUEBLE">
+          <ScalarProperty Name="ID_INMUEBLE" ColumnName="ID_INMUEBLE" />
+          <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+          <ScalarProperty Name="ID_PUBLICACION" ColumnName="ID_PUBLICACION" />
+          <ScalarProperty Name="ID_COMUNA" ColumnName="ID_COMUNA" />
+          <ScalarProperty Name="ID_DOCUMENTACION" ColumnName="ID_DOCUMENTACION" />
+          <ScalarProperty Name="MATERIAL_INMUEBLE" ColumnName="MATERIAL_INMUEBLE" />
+          <ScalarProperty Name="DIRECCION_INMUEBLE" ColumnName="DIRECCION_INMUEBLE" />
+          <ScalarProperty Name="LATITUD" ColumnName="LATITUD" />
+          <ScalarProperty Name="LONGITUD" ColumnName="LONGITUD" />
+          <ScalarProperty Name="CANTIDAD_M2" ColumnName="CANTIDAD_M2" />
+          <ScalarProperty Name="CANTIDAD_HABITACION" ColumnName="CANTIDAD_HABITACION" />
+          <ScalarProperty Name="CANTIDAD_BANO" ColumnName="CANTIDAD_BANO" />
+          <ScalarProperty Name="ESTACIONAMIENTO" ColumnName="ESTACIONAMIENTO" />
+          <ScalarProperty Name="NUMERO_CONTACTO" ColumnName="NUMERO_CONTACTO" />
+          <ScalarProperty Name="PRECIO_INMUEBLE" ColumnName="PRECIO_INMUEBLE" />
+          <ScalarProperty Name="FOTO_INMUEBLE_1" ColumnName="FOTO_INMUEBLE_1" />
+          <ScalarProperty Name="FOTO_INMUEBLE_2" ColumnName="FOTO_INMUEBLE_2" />
+          <ScalarProperty Name="FOTO_INMUEBLE_3" ColumnName="FOTO_INMUEBLE_3" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PROVINCIA">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.PROVINCIA">
+        <MappingFragment StoreEntitySet="PROVINCIA">
+          <ScalarProperty Name="ID_PROVINCIA" ColumnName="ID_PROVINCIA" />
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+          <ScalarProperty Name="NOMBRE_PROVINCIA" ColumnName="NOMBRE_PROVINCIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="PUBLICACION">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.PUBLICACION">
+        <MappingFragment StoreEntitySet="PUBLICACION">
+          <ScalarProperty Name="ID_PUBLICACION" ColumnName="ID_PUBLICACION" />
+          <ScalarProperty Name="ID_INMUEBLE" ColumnName="ID_INMUEBLE" />
+          <ScalarProperty Name="FECHA" ColumnName="FECHA" />
+          <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="REGION">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.REGION">
+        <MappingFragment StoreEntitySet="REGION">
+          <ScalarProperty Name="ID_REGION" ColumnName="ID_REGION" />
+          <ScalarProperty Name="NOMBRE_REGION" ColumnName="NOMBRE_REGION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USUARIO">
+      <EntityTypeMapping TypeName="CazaTuCasaModel.USUARIO">
+        <MappingFragment StoreEntitySet="USUARIO">
+          <ScalarProperty Name="ID_REGISTRO" ColumnName="ID_REGISTRO" />
+          <ScalarProperty Name="NOMBRE_REGISTRO" ColumnName="NOMBRE_REGISTRO" />
+          <ScalarProperty Name="APELLIDO_REGISTRO" ColumnName="APELLIDO_REGISTRO" />
+          <ScalarProperty Name="USUARIO1" ColumnName="USUARIO" />
+          <ScalarProperty Name="PASSWORD" ColumnName="PASSWORD" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

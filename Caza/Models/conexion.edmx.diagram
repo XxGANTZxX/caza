@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="8e563e867db84c07be3750c1db84df03" Name="Diagrama1">
+        <EntityTypeShape EntityType="CazaTuCasaModel.COMUNA" Width="1.5" PointX="5.25" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.DOCUMENTACION" Width="1.5" PointX="9.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.INMUEBLE" Width="1.5" PointX="7.5" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.PROVINCIA" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.PUBLICACION" Width="1.5" PointX="9.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.REGION" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.sysdiagrams" Width="1.5" PointX="0.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="CazaTuCasaModel.USUARIO" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_COMUNA_POSEEN_PROVINCI" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_INMUEBLE_SE_UBICA_COMUNA" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_DOCUMENT_NESESITA2_INMUEBLE" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_INMUEBLE_NESESITA_DOCUMENT" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_INMUEBLE_GENERA_PUBLICAC" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_INMUEBLE_TIENE_USUARIO" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_PUBLICAC_GENERA2_INMUEBLE" ManuallyRouted="false" />
+        <AssociationConnector Association="CazaTuCasaModel.FK_PROVINCI_CONTIENE_REGION" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
